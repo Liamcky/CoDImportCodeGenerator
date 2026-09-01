@@ -9,7 +9,7 @@ function loadScript(src) {
 }
 
 (async () => {
-  await loadScript("Bo7Weapons.js");
+  await loadScript("BO7Weapons.js");
   await loadScript("attachments.js");
   await loadScript("script.js");
 })();

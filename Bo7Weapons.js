@@ -9,7 +9,9 @@ const assaultRifle = Object.freeze({
   "Voyak KT-3": "A09",
   "Maddox RFB": "A11",
   "MK35 ISR": "A12",
-  "VX Compact": "A14"
+  "AN-94": "A13",
+  "VX Compact": "A14",
+  "FG42": "A16"
 });
 const submachinegun = Object.freeze({
   "Ryden 45K": "S01",
@@ -22,7 +24,8 @@ const submachinegun = Object.freeze({
   "REV-46": "S09",
   "Kogot-7": "S10",
   "VST": "S12",
-  "CBRS-3": "S15"
+  "CBRS-3": "S15",
+  "Gremlin": "S16"
 });
 const shotgun = Object.freeze({
   "M10 Breacher": "C01",
@@ -33,7 +36,8 @@ const shotgun = Object.freeze({
 const lightmachinegun = Object.freeze({
   "MK.78": "L01",
   "XM325": "L02",
-  "Sokol 545": "L04"
+  "Sokol 545": "L04",
+  "Mammoth": "L10"
 });
 const marksmanRifle = Object.freeze({
   "M8A1": "M01",

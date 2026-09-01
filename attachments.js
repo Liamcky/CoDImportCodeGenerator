@@ -27,7 +27,9 @@ const ATTACHMENTS =  Object.freeze({
     "2TKDT-KUNDY-11",
     "2W24T-C4YT3-11",
     "2YHUT-3EA87-11",
-    "31YKS-TNKMB-11"
+    "31YKS-TNKMB-11",
+    "34FBS-JXW2F-11",
+    "36W2S-B87GJ-11"
   ],
   muzzle: [
     "",
