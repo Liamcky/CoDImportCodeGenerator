@@ -1,126 +1,69 @@
-const assaultRifle = Object.freeze({
-  "A01"	: "M15 MOD 0",
-  "A02"	: "AK-27",
-  "A03"	: "MXR-17",
-  "A04"	: "X9 Maverick",
-  "A05"	: "DS20 Mirage",
-  "A06"	: "Peacekeeper MK1"
-});
-const submachinegun = Object.freeze({
-  "S01" :	"Ryden 45K",
-  "S02" :	"RK-9",
-  "S03"	: "Razor 9mm",
-  "S04"	: "Dravec 45",
-  "S05"	: "Carbon 57",
-  "S06"	: "MPC-25"
-});
-const shotgun = Object.freeze({
-  "C01" :	"M10 Breacher",
-  "C02" :	"Echo 12",
-  "C03" :	"Akita"
-});
-const lightmachinegun = Object.freeze({
-  "L01"	: "MK.78",
-  "L02" :	"XM325"
-});
-const marksmanRifle = Object.freeze({
-  "M01" :	"M8A1",
-  "M02"	: "Warden 308",
-  "M03"	: "M34 Novaline"
-});
-const sniper = Object.freeze({
-  "R01" :	"VS Recon",
-  "R02"	: "Shadow SK",
-  "R03" :	"XR-3 Ion"
-});
-const pistol = Object.freeze({
-  "P01"	: "Jager 45",
-  "P02"	: "Velox 5.7",
-  "P03"	: "Coda 9"
-});
-const categoryMap = Object.freeze({
-  "ASSAULT RIFLES" : "A",
-  "SUBMACHINE GUNS" : "S",
-  "SHOTGUNS" : "C",
-  "LIGHT MACHINE GUNS" : "L",
-  "MARKSMAN RIFLES" : "M",
-  "SNIPER RIFLES" : "R",
-  "PISTOLS" : "P"
-});
+let resultText =  document.getElementById('result');
+let optic = document.getElementById('optic');
+let muzzle = document.getElementById('muzzle');   
+let barrel = document.getElementById('barrel');
+let underbarrel = document.getElementById('underbarrel'); 
+let launchers = document.getElementById('launchers');
+let magazine = document.getElementById('magazine');
+let rearGrip = document.getElementById('rearGrip');
+let stock = document.getElementById('stock');
+let laser = document.getElementById('laser');
+let fireMod = document.getElementById('fireMod');
+let ammoMod = document.getElementById('ammoMod');
+let apex = document.getElementById('apex');
+let special = document.getElementById('special');  
 
-const optic = Object.freeze({
-  "5XGZH-JLU91-1" : "",
-  "8E7Z8-TX9D1-1" : "",
-  "AUXYZ-48NH1-1" : "",
-  "DBNYQ-DJ§L1-1" : "",   
-  "FSEYG-MUHQ1-1" : ""
-});
-const muzzle = Object.freeze({
-  "7AFKS-11" : "",
-  "45QAW-11" : "",
-  "2KD5Y-11" : "",
-  "5Q3FU-11" : "",
-  "8USQQ-11" : ""
-});
-const barrel = Object.freeze({
-  "H11" : "",
-  "2711" : "",
-  "2F11" : "",
-  "Y11" : "",
-  "Q11" : ""
-});
-const underbarrel = Object.freeze({
-  "6K2Z6-A311 : "",
-  "7YBYY-3U11 : "",
-  "2E9ZS-TS11 : "",
-  "56SZD-GB11 : "",
-  "3SIZK-MJ11 : "",
-  "2DD7G-6R72R-B11 : "",
-  "243YD-5L5UL-911 : "",
-  "TTQA4-G4MG7-11 : "",
-  "JJH73-B3FB5-11 : "",
-  "9CKYQ-WL11 : ""
-});
-const magazine = Object.freeze({
-  "6BQ11" : "",
-  "4JH11" : "",
-  "83Y11" : "",
-  "9V711" : ""
-});
-const reargrip = Object.freeze({
-  "CTRG7-Y11" : "",
-  "IQM6T-F11" : "",
-  "6WVQL-H11" : "",
-  "9VBKW-Q11" : "",
-  "FS7BI-711" :
-});
-const stock = Object.freeze({
-  "G311" : "",
-  "8J11" : "", 
-  "CB11 : "",
-  "NL11 : "",
-  "JU11 : "",
-  "AA942-62863-11" : ""
-});
-const laser = Object.freeze({
-  "68XV7-YIW11" : "",
-  "3LYXL-H9Y11 : "",
-  "BGVQE-X2S11" : "",
-  "8UWST-FSU11" : "",
-  "E3UN1-EBQ11" : ""
-});
-const firemods = Object.freeze({
-  "131" : "",
-  "2JD6P-5HFUD-KB11" : "",
-  "151" : "",
-  "21WSG-FBYJX-2J11" : "",
-  "UCS11" : ""
-});
+function reset(){
+        optic.value = "";
+        muzzle.value = "";
+        barrel.value = "";
+        underbarrel.value = "";
+        launchers.value = "";
+        magazine.value = "";
+        rearGrip.value = "";
+        stock.value = "";
+        laser.value = "";
+        if (fireMod) fireMod.value = "";
+        ammoMod.value = "";
+        if(apex) apex.value = "";
+        special.value = "";  
+        resultText.innerText = "";
+        };
+ 
+const weaponMap = {
+  assaultRifle,
+  submachinegun,
+  shotgun,
+  lightmachinegun,
+  marksmanRifle,
+  sniper,
+  pistol,
+  specialW
+};
+ 
+function categorymap(categorySelect){
+ const weapon = document.getElementById('weapon');
+ weapon.innerHTML = "";
+  const selectedCategory = weaponMap[categorySelect.value];
+  if (!selectedCategory) return;
 
+  //get options
+  Object.entries(selectedCategory).forEach(([name, code]) => {
+    const opt = document.createElement("option");
+    opt.value = code;     
+    opt.textContent = name; 
+    weapon.appendChild(opt);
+  });
+ if (weapon.options.length > 0) 
+     weapon.selectedIndex = 0;
+ 
+    calculate();
+}
+ 
 function customAddMultiple(...inputs) {
     if (inputs.length === 0) return '';
 
-    const charset = "123456789ABCDEFGHIJKLMNPQRSTUVWXYZ"; //Base34 1-9 A-Z without O but 1 has value 0
+    const charset = "123456789ABCDEFGHIJKLMNPQRSTUVWXYZ"; // Base34 without O
     const baseValue = charset.length;
 
     const charToIndex = {};
@@ -156,23 +99,37 @@ function customAddMultiple(...inputs) {
 
     return result;
 }
-
+let weaponvalue = "";
 function calculate() {
+    weaponvalue = document.getElementById('weapon').value;
     const values = [
-        document.getElementById('optic').value,
-        document.getElementById('muzzle').value,
-        document.getElementById('barrel').value,
-        document.getElementById('underbarrel').value,
-        document.getElementById('magazine').value,
-        document.getElementById('rearGrip').value,
-        document.getElementById('stock').value,
-        document.getElementById('laser').value,
-        document.getElementById('fireMods').value
+        optic.value,
+        muzzle.value,
+        barrel.value,
+        underbarrel.value,
+        launchers.value,
+        magazine.value,
+        rearGrip.value,
+        stock.value,
+        laser.value,
+        fireMod ? fireMod.value : "",
+        ammoMod.value,
+        apex ? apex.value : "",
+        special.value     
     ];
      for (let i = 0; i < values.length; i++) {
         values[i] = values[i].replace(/-/g, '');
     }
-
+    const hasAttachment = values.some(v => v.length > 0);
+    if (!weaponvalue || !hasAttachment) {
+        resultText.innerText = ""; // clear result if not ready
+        return;
+    }
+      
     const result = customAddMultiple(...values);
-    document.getElementById('result').innerText = "Result: " + result.match(/.{1,5}/g).join('-');
+   resultText.innerText = "Result: " + weaponvalue + "-" + result.match(/.{1,5}/g).join('-');
 }
+window.addEventListener('pageshow', () => {
+    const category = document.getElementById('category');
+    categorymap(category);
+ });
