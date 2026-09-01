@@ -19,6 +19,10 @@ h1 {
     color: #6cf;
 }
 
+.textcenter {
+    text-align: center;
+}
+
 .selectcontainer {
     display: grid;
     grid-template-columns: 1fr 1fr;
