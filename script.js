@@ -32,6 +32,7 @@ function reset(){
  
 const weaponMap = {
   assaultRifle,
+  battleRifle,
   submachinegun,
   shotgun,
   lightmachinegun,
