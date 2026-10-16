@@ -39,7 +39,9 @@ const ATTACHMENTS =  Object.freeze({
     "7AFKS-11",
     "8USQQ-11",
     "AF5VN-11",
-    "BZI1L-11"
+    "BZI1L-11",
+    "DJV6J-11",
+    "F58BH-11"
   ],
   barrel: [
     "",
