@@ -57,6 +57,10 @@ const ATTACHMENTS =  Object.freeze({
   ],
   underbarrel: [
     "",
+    "131",
+    "151",
+    "171",
+    "191",
     "2E9ZS-TS11",
     "3SIZK-MJ11",
     "56SZD-GB11",
@@ -141,6 +145,7 @@ const ATTACHMENTS =  Object.freeze({
   ],
   apex:[
     "",
+    "211",
     "311",
     "411",
     "511"
